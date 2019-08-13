@@ -5,38 +5,38 @@ from pybricks.parameters import Port
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
 
-# Play a sound.
+# Reproducimos un sonido
 brick.sound.beep()
-# Initialize the Ultrasonic Sensor. It is used to detect
-# obstacles as the robot drives around.
+# Inicializamos el sensor ultrasonico.
+# Nos permite ver obstaculos mientras se maneja.
 obstacle_sensor = UltrasonicSensor(Port.S4)
-# Initialize two motors with default settings on Port B and Port C.
-# These will be the left and right motors of the drive base.
+# Inicialimos 2 motores izquierdo y derecho
 left_motor = Motor(Port.B)
 right_motor = Motor(Port.C)
-# The wheel diameter of the Robot Educator is 56 millimeters.
+# Definimos el diametro de la rueda 56 cm.
 wheel_diameter = 56
-# The axle track is the distance between the centers of each of the wheels.
-# For the Robot Educator this is 114 millimeters.
+# Definimos la longitud del eje de las ruedas.
 axle_track = 114
-# The DriveBase is composed of two motors, with a wheel on each motor.
-# The wheel_diameter and axle_track values are used to make the motors
-# move at the correct speed when you give a motor command.
+# El par motriz esta compuesto de dos motores con una llanta cada uno.
+# el diametro de la rueda y la longitud del eje seran usados para hacer
+# que los motores se mueven a la velocidad correcta con cada comando
 robot = DriveBase(left_motor, right_motor, wheel_diameter, axle_track)
-# The following loop makes the robot drive forward until it detects an
-# obstacle. Then it backs up and turns around. It keeps on doing this
-# until you stop the program.
-while True:
-# Begin driving forward at 200 millimeters per second.
-robot.drive(200, 0)
-# Wait until an obstacle is detected. This is done by repeatedly
-# doing nothing (waiting for 10 milliseconds) while the measured
-# distance is still greater than 300 mm.
-while obstacle_sensor.distance() > 300:
-wait(10)
-# Drive backward at 100 millimeters per second. Keep going for 2 seconds.
-robot.drive_time(-100, 0, 2000)
-# Turn around at 60 degrees per second, around the midpoint between
-# the wheels. Keep going for 2 seconds.
-robot.drive_time(0, 60, 2000)
+# El siguiente ciclo hace que el robot avance hasta que detecta un obstaculo
+# si lo detecta se regresa y gira. 
 
+while True:
+    # Empezamos a manejar a 200 mm por segundo.
+    robot.drive(200, 0)
+    # Esperamos a que un obstaculo sea detectado. Hacemos esto
+    # al esperar sin hacer nada 10 ms mientras que la distancia
+    # sea mayor a 300 mm
+
+while obstacle_sensor.distance() > 300:
+    wait(10)
+    # Manejamos hacia atras a 100 mm/s por 2 segundos.
+    robot.drive_time(-100, 0, 2000)
+    # Giramos 60 grados por 2 segundos
+    robot.drive_time(0, 60, 2000)
+
+
+			

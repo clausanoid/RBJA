@@ -21,7 +21,7 @@ elif(calc.sumar() < 50):
 
 # Si el resultado de la division de ambos numeros es igual
 # o menor a 13 y mayor a 10 imprimimos un mensaje
-if(calc.dividir() <= 13  and calc.dividir() > 10):
+if(calc.dividir() <= 13  and calc.dividir() < 10):
     print("el numero: " + str(calc.dividir()) + " es 25 o menos")
 # Si no, si el resultado de la division de ambos numeros es mayor o igual
 # a 13 y sea mayor a 10 imprimimos un mensaje
