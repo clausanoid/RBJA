@@ -30,13 +30,15 @@ while True:
     # Esperamos a que un obstaculo sea detectado. Hacemos esto
     # al esperar sin hacer nada 10 ms mientras que la distancia
     # sea mayor a 300 mm
+    while obstacle_sensor.distance() > 300:
+        wait(10)
+        # Manejamos hacia atras a 100 mm/s por 2 segundos.
+        robot.drive_time(-100, 0, 2000)
+        # Giramos 60 grados por 2 segundos
+        robot.drive_time(0, 60, 2000)
 
-while obstacle_sensor.distance() > 300:
-    wait(10)
-    # Manejamos hacia atras a 100 mm/s por 2 segundos.
-    robot.drive_time(-100, 0, 2000)
-    # Giramos 60 grados por 2 segundos
-    robot.drive_time(0, 60, 2000)
 
 
-			
+
+
+   
